@@ -41,6 +41,25 @@ const getSinglePhone = singlePhone=>{
     const url = `https://openapi.programming-hero.com/api/phone/${singlePhone}`;
     fetch(url)
     .then(response=>response.json())
-    .then(data=>console.log(data));
+    .then(data=>singlePhoneDetails(data.data));
+
+}
+
+//display single phone details
+const singlePhoneDetails = singleDetails=>{
+    const section = document.getElementById("singledisplay");
+    //clear previous data
+    section.innerHTML="";
+    const div = document.createElement("div");
+    div.classList.add("card");
+    div.innerHTML=`
+                <img id="image" src="${singleDetails.image}" class="card-img-top img-fluid" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">${singleDetails.name}</h5>
+                      <p class="card-text">${singleDetails.releaseDate?singleDetails.releaseDate:"Release date not found"}</p>
+                      
+                    </div>
+    `;
+    section.appendChild(div);
 
 }
