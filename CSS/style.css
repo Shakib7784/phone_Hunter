@@ -1,6 +1,11 @@
 #first_h1{
     color: darkturquoise;
 }
-#features{
-    color:lightblue
+.features{
+    color:darkturquoise;
+}
+#error1
+{
+    display: none;
+    color: red;
 }
