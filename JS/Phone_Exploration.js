@@ -55,8 +55,24 @@ const singlePhoneDetails = singleDetails=>{
     div.innerHTML=`
                 <img id="image" src="${singleDetails.image}" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">${singleDetails.name}</h5>
+                      <h4 class="card-title">${singleDetails.name}</h4>
                       <p class="card-text">${singleDetails.releaseDate?singleDetails.releaseDate:"Release date not found"}</p>
+                      <h5 class="card-title features">Main Features:</h5>
+                      <p class="card-text"><b>ChipSet : </b> ${singleDetails.mainFeatures.chipSet?singleDetails.mainFeatures.chipSet:""}</p>
+                      <p class="card-text"><b>Display Size :</b> ${singleDetails.mainFeatures.displaySize?singleDetails.mainFeatures.displaySize:""}</p>
+                      <p class="card-text"><b>Memory :</b> ${singleDetails.mainFeatures.memory?singleDetails.mainFeatures.memory:""}</p>
+                      <p class="card-text"><b>Sensors :</b> ${singleDetails.mainFeatures.sensors?singleDetails.mainFeatures.sensors:""}</p>
+                      <p class="card-text"><b>Storage :</b> ${singleDetails.mainFeatures.storage?singleDetails.mainFeatures.storage:""}</p>
+                      <h5 class="card-title features">Others:</h5>
+                      <p class="card-text"><b>Bluetooth :</b> ${singleDetails.others.Bluetooth?singleDetails.others.Bluetooth:""}</p>
+                      <p class="card-text"><b>GPS :</b> ${singleDetails.others.GPS?singleDetails.others.GPS:""}</p>
+                      <p class="card-text"><b>NFC :</b> ${singleDetails.others.NFC?singleDetails.others.NFC:""}</p>
+                      <p class="card-text"><b>Radio :</b> ${singleDetails.others.Radio?singleDetails.others.Radio:""}</p>
+                      <p class="card-text"><b>USB :</b> ${singleDetails.others.USB?singleDetails.others.USB:""}</p>
+                      <p class="card-text"><b>WLAN :</b> ${singleDetails.others.WLAN?singleDetails.others.WLAN:""}</p>
+                      
+
+
                       
                     </div>
     `;
