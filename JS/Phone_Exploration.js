@@ -27,13 +27,20 @@ const displayphones = phones=>{
                 <div class="card-body">
                   <h5 class="card-title">${phone.brand}</h5>
                   <p class="card-text">${phone.phone_name}</p>
-                  <button  class="btn btn-outline-secondary" type="button" id="button-addon2">See Details</button>
+                <button onclick="getSinglePhone('${phone.slug}')"  class="btn btn-outline-secondary" type="button" id="button-addon2">See Details</button>
                 </div>
               </div>
             </div>
         `;
         display.appendChild(div);
     })
+}
 
+//get phone by id
+const getSinglePhone = singlePhone=>{
+    const url = `https://openapi.programming-hero.com/api/phone/${singlePhone}`;
+    fetch(url)
+    .then(response=>response.json())
+    .then(data=>console.log(data));
 
 }
