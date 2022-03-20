@@ -1,19 +1,26 @@
-
+// getting spinner
+const spinner = spin=>{
+  document.getElementById("spinner").style.display=spin;
+}
 // getting phone from input field then fetch phones
 const getphone = ()=>{
+    // call spinner
+    spinner("block");
     const getphones = document.getElementById("input");
     const getphonesvalue = getphones.value;
+    
     // clear previous data
     getphones.value="";
-    // fetch data
-    const url = ` https://openapi.programming-hero.com/api/phones?search=${getphonesvalue}`;
+    // fetch data and use toLowercase to remove case sensitive
+    const url = ` https://openapi.programming-hero.com/api/phones?search=${getphonesvalue.toLowerCase()}`;
     fetch(url)
     .then(Response=>Response.json())
-    .then(data=>displayphones(data.data));
+    .then(data=>displayphones(data.data))
 }
 
 //display phones
 const displayphones = phones=>{
+ 
     const display = document.getElementById("display");
     // clear prvious data
     display.innerHTML="";
@@ -24,7 +31,6 @@ const displayphones = phones=>{
     }
     // make a restriction upto 20 items will be shown in UI using slice
     const items = phones.slice(0,20);
-    
     items.forEach(phone=>{
       document.getElementById("error1").style.display="none";
         const div = document.createElement('div');
@@ -43,11 +49,12 @@ const displayphones = phones=>{
         `;
         display.appendChild(div);
     })
-  
+    spinner("none");
 }
 
 //get phone by id
 const getSinglePhone = singlePhone=>{
+  spinner("block");
     const url = `https://openapi.programming-hero.com/api/phone/${singlePhone}`;
     fetch(url)
     .then(response=>response.json())
@@ -74,22 +81,15 @@ const singlePhoneDetails = singleDetails=>{
                       <p class="card-text"><b>Sensors :</b> ${singleDetails.mainFeatures.sensors?singleDetails.mainFeatures.sensors:""}</p>
                       <p class="card-text"><b>Storage :</b> ${singleDetails.mainFeatures.storage?singleDetails.mainFeatures.storage:""}</p>
                       <h5 class="card-title features"> ${singleDetails.others?"Others: " :"not found"}</h5>
-
                       <p class="card-text"><b>Bluetooth :</b> ${singleDetails.others.Bluetooth?singleDetails.others.Bluetooth :" not found"}</p>
                       <p class="card-text"><b>GPS :</b> ${singleDetails.others.GPS?singleDetails.others.GPS :""}</p>
                       <p class="card-text"><b>NFC :</b> ${singleDetails.others.NFC?singleDetails.others.NFC :""}</p>
                       <p class="card-text"><b>Radio :</b> ${singleDetails.others.Radio?singleDetails.others.Radio :""}</p>
                       <p class="card-text"><b>USB :</b> ${singleDetails.others.USB?singleDetails.others.USB :""}</p>
-                      <p class="card-text"><b>WLAN :</b> ${singleDetails.others.WLAN?singleDetails.others.WLAN :""}</p>
-
-
-                      
-                      
-
-
-                      
+                      <p class="card-text"><b>WLAN :</b> ${singleDetails.others.WLAN?singleDetails.others.WLAN :""}</p>   
                     </div>
     `;
     section.appendChild(div);
+    spinner("none");
 
 }

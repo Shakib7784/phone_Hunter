@@ -18,10 +18,17 @@
             <input id="input" type="text" class="form-control" placeholder="Enter phone name here" aria-label="Recipient's username" aria-describedby="button-addon2">
             <button onclick="getphone()" class="btn btn-outline-secondary" type="button" id="button-addon2">Explore</button>
           </div>
+          <!-- spinner -->
+          <div id="spinner" class="spinner-border text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+
            <!-- error 1 -->
           <div>
             <p id="error1">This brand is not found! Please search again.</p>
           </div>
+          
+
           <!-- display single phone details -->
             <section class="my-5" id="singledisplay">
             </section>
@@ -31,13 +38,8 @@
             <div class="row row-cols-1 row-cols-md-3 g-4" id="display">
             
             </div>
-          </section>
-          
+          </section>    
     </main>
-    
-
-
-
     <!-- js link -->
     <script src="JS/Phone_Exploration.js"></script>
 
